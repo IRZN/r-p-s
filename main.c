@@ -5,10 +5,12 @@
 int main(void)
 {
     int pe, pa, tes, maq, esc;
+    int i = 0, imaq = 0, iesc = 0;
     pe = 1;
     pa = 2;
     tes = 3;
 
+do {
     srand(time(NULL));
     maq = 1+ rand() % 3;
 
@@ -16,33 +18,48 @@ int main(void)
     scanf("%i", &esc);
 
 if (esc == maq) {
-        printf("EMPATE!");
+        printf("\nEMPATE! \n");
     } else if (esc == pe && maq == tes) {
-        printf ("VOCE GANHOU!");
+        printf ("\nVOCE GANHOU! \n");
+        iesc++;
     } else if (esc == pe && maq == pa) {
-        printf ("VOCE PERDEU!");
+        printf ("\nVOCE PERDEU! \n");
+        imaq++;
     } else if (esc == tes && maq == pa) {
-        printf ("VOCE GANHOU!");
+        printf ("\nVOCE GANHOU! \n");
+        iesc++;
     } else if (esc == tes && maq == pe) {
-        printf("VOCE PERDEU!");
+        printf("\nVOCE PERDEU! \n");
+        imaq++;
     } else if (esc == pa && maq == pe) {
-        printf ("VOCE GANHOU!");
+        printf ("\nVOCE GANHOU! \n");
+        iesc++;
     } else if (esc == pa && maq == tes) {
-        printf ("VOCE PERDEU!");
+        printf ("\nVOCE PERDEU! \n");
+        imaq++;
     }
 if (esc == pe) {
-        printf ("\nVoce escolheu pedra!");
+        printf ("\nVoce escolheu pedra! \n");
     } else if (esc == pa) {
-        printf ("\nVoce escolheu papel!");
+        printf ("\nVoce escolheu papel! \n");
     } else if (esc == tes) {
-        printf ("\nVoce escolheu tesoura");
+        printf ("\nVoce escolheu tesoura \n");
     }
 if (maq == pe) {
-        printf ("\nA maquina escolheu pedra!");
+        printf ("\nA maquina escolheu pedra! \n");
     } else if (maq == pa) {
-        printf ("\nA maquina escolheu papel!");
+        printf ("\nA maquina escolheu papel! \n");
     } else if (maq == tes) {
-        printf ("\nA maquina escolheu tesoura!");
+        printf ("\nA maquina escolheu tesoura! \n");
     }
-    return 0;
+i++;
+}while (i < 5);
+    
+    if (imaq > iesc) {
+        printf ("\nA maquina ganhou com %d vitorias \n", imaq);
+    } else {
+        printf ("\nVoce ganhou com %d vitorias \n", iesc);
+    }
+
+return 0;
 }
